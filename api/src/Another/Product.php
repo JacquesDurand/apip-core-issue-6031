@@ -1,26 +1,18 @@
 <?php
 
-namespace App\Entity;
+declare(strict_types=1);
+
+namespace App\Another;
 
 use ApiPlatform\Metadata\ApiResource;
-use ApiPlatform\Metadata\Get;
-use ApiPlatform\Metadata\GetCollection;
-use App\ApiResource\MyDomainException;
-use App\Exception\ProductWasRemovedException;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * This is a dummy entity. Remove it!
- */
-#[ApiResource(operations: [
-    new GetCollection(errors: [MyDomainException::class])
-])]
-class Greeting
+#[ApiResource]
+#[ORM\Entity]
+class Product
 {
-    /**
-     * The entity ID
-     */
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue(strategy: 'SEQUENCE')]
